@@ -1,28 +1,28 @@
-let toDoContainer = document.getElementById('toDoList');
+let toDoList = document.getElementById('toDoList');
 
 function loadToDoItems() {
   let storedItems = localStorage.getItem('toDoItems');
   if (storedItems) {
-    toDoContainer.innerHTML = storedItems;
+    toDoList.innerHTML = storedItems;
     applyEventListeners();
   }
 }
 
 function saveToDoItems() {
-  localStorage.setItem('toDoItems', toDoContainer.innerHTML);
+  localStorage.setItem('toDoItems', toDoList.innerHTML);
 }
 
 
 let toDoHeading = document.createElement('h3');
 toDoHeading.innerText = 'To-Do';
 toDoHeading.style.cursor = 'pointer';
-toDoContainer.before(toDoHeading);
+toDoList.before(toDoHeading);
 
 
 let inputContainer = document.createElement('div');
 inputContainer.style.display = 'flex';
 inputContainer.style.marginBottom = '10px';
-toDoContainer.before(inputContainer);
+toDoList.before(inputContainer);
 
 
 let inputField = document.createElement('input');
@@ -38,11 +38,11 @@ inputField.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
 addToDoButton.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
 
 toDoHeading.addEventListener('click', function() {
-  if (toDoContainer.style.display === 'none') {
-    toDoContainer.style.display = 'block';
+  if (toDoList.style.display === 'none') {
+    toDoList.style.display = 'block';
     inputContainer.style.display = 'flex';
   } else {
-    toDoContainer.style.display = 'none';
+    toDoList.style.display = 'none';
     inputContainer.style.display = 'none';
   }
 });
@@ -51,12 +51,12 @@ addToDoButton.addEventListener('click', function() {
   var listItem = document.createElement('li');
   listItem.classList.add('list-item');
   listItem.innerText = inputField.value;
-  toDoContainer.appendChild(listItem);
+  toDoList.appendChild(listItem);
   inputField.value = "";
   saveToDoItems();
 
-  listItem.style.listStyle ='none';
- 
+  listItem.style.listStyle = 'none';
+
 
   listItem.addEventListener('click', function() {
     listItem.style.textDecoration = "line-through";
@@ -64,14 +64,14 @@ addToDoButton.addEventListener('click', function() {
   });
 
   listItem.addEventListener('dblclick', function() {
-    toDoContainer.removeChild(listItem);
+    toDoList.removeChild(listItem);
     saveToDoItems();
   });
 });
 
 
 function applyEventListeners() {
-  let listItems = toDoContainer.querySelectorAll('.list-item');
+  let listItems = toDoList.querySelectorAll('.list-item');
   listItems.forEach(function(listItem) {
     listItem.addEventListener('click', function() {
       listItem.style.textDecoration = "line-through";
@@ -79,7 +79,7 @@ function applyEventListeners() {
     });
 
     listItem.addEventListener('dblclick', function() {
-      toDoContainer.removeChild(listItem);
+      toDoList.removeChild(listItem);
       saveToDoItems();
     });
   });
@@ -87,7 +87,5 @@ function applyEventListeners() {
 
 loadToDoItems();
 
-toDoContainer.style.display = 'none';
+toDoList.style.display = 'none';
 inputContainer.style.display = 'none';
-
-
