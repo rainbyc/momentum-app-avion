@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="background.css">
     <link rel="stylesheet" type="text/css" href="greeting-feature/greeting.css">
+    <link rel="stylesheet" type="text/css" href="focus-feature/focus.css">
     <link rel="stylesheet" type="text/css" href="clock-feature/clock.css">
     <link rel="stylesheet" type="text/css" href="quote-feature/quotes.css">
     <link rel="stylesheet" type="text/css" href="todo-app.css">
@@ -32,7 +33,17 @@
         <input type="text" id="nameInput" placeholder="Enter your name" onkeyup="checkEnter(event)">
       </section>
 
-  
+      <!--Jeiniel-->
+      <section id="main-focus">
+        <div id="focusContainer">
+          <input type="text" id="focusInput" placeholder="Enter your focus for today" onkeydown="handleInput(event)">
+          <div id="focusDisplay" style="display: none;">
+            <p id="focusText"></p>
+            <i id="doneIcon" class="fas fa-check" onclick="toggleDone()"></i>
+            <i id="deleteIcon" class="fas fa-trash" onclick="deleteFocus()"></i>
+          </div>
+      </section>
+      
       <!-- Rainier -->
       <section id="clock">
         <span id="hours">00</span>
@@ -67,6 +78,7 @@
     <!--  script tags -->
     <script src="/background-feature/background.js"></script>
     <script src="/greeting-feature/greeting.js"></script>
+    <script src="/focus-feature/focus.js"></script>
     <script src="clock-feature/clock.js"></script>
     <script src="/quote-feature/quotes.js"></script>
     <script src="/todolist-feature/todolist.js"></script>
