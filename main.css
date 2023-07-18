@@ -1,0 +1,19 @@
+body {
+    position: relative;
+}
+
+
+
+#main-focus {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px
+
+}
+
+#quotes {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 300px;
+}
